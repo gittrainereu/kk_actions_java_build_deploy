@@ -25,7 +25,8 @@ jobs:
       - name: Copy JAR to Aya-GlassFish via SCP
         run: |
           echo "---START---"
-          ls -la
+          ls -laR
           cd target
-          ls -la
+          echo "---Mitte---"
+          ls -laR
           echo "---ENDE---"          
