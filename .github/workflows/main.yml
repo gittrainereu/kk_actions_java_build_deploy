@@ -25,8 +25,20 @@ jobs:
       - name: Copy JAR to Aya-GlassFish via SCP
         run: |
           echo "---START---"
-          ls -laR
+          ls -la
           cd target
           echo "---Mitte---"
           ls -laR
-          echo "---ENDE---"          
+          echo "---ENDE---"
+
+      - name: Copy jar to Aya-Glasfish 
+        uses: appleboy/scp-action@v1
+        with:
+# ip des server          
+          host: 164.92.167.148
+          username: tln4
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "target/*.jar"
+# eigener user          
+          target: "/home/tln4/"
